@@ -2,8 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Car from './Car';
 
-const myFirstElement = <body><h1>Hello React!</h1><button id='btn'>Click me</button></body>
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
