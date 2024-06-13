@@ -1,35 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import Car from './Car';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Car from "./Car";
+import Header from "./Header";
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-
-
-
+const root = ReactDOM.createRoot(document.getElementById("root"));
+const headerDom = ReactDOM.createRoot(document.querySelector("header"));
 
 function Garage() {
   return (
     <>
-    <h1>Who lives in my garage?</h1>
-    <Car name="Volvo" model="V70"/>
+      <h1>Who lives in my garage?</h1>
+      <Car name="Volvo" model="V70" />
     </>
-  )
+  );
 }
 
-class Header {
-  constructor(){
-    this.color = "Red"
-  }
-
-  // changeColor = () => { document.getElementById("demo").innerHTML += this}
-}
-
-const myHeader = new Header()
-
-window.addEventListener("load", myHeader.changeColor)
-
-document.getElementById("btn")
-root.render(
-  <Garage />
-);
+headerDom.render(<Header />);
+root.render(<Garage />);
