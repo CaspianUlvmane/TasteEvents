@@ -7,3 +7,29 @@ header {
   height: 100px;
   margin: auto;
 }
+
+#navigation {
+  display: flex;
+  justify-content: space-evenly;
+  width: 1000px;
+  margin: auto;
+}
+
+#navigation > a {
+  text-decoration: none;
+  color: black;
+  font-family: poor richard;
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+#navigation > a:hover {
+  background: linear-gradient(
+    0deg,
+    rgba(195, 109, 34, 1) 0%,
+    rgba(253, 187, 45, 1) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

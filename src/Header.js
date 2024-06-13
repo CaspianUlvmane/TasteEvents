@@ -37,7 +37,7 @@ function Header() {
   return (
     <>
       <img id="banner" src={data.Banner} alt="Taste Events by Wolfmoon"></img>
-      {listElements()}
+      <div id="navigation">{listElements()}</div>
     </>
   );
 }
