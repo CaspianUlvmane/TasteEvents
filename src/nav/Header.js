@@ -1,5 +1,5 @@
 import "./Header.css";
-import db from "./firebase.js";
+import db from "../db/firebase.js";
 import React from "react";
 import { doc, getDoc } from "firebase/firestore";
 
@@ -25,7 +25,9 @@ function listElements() {
 
   //create link elements for each key with data from db
   for (let key of orderedKeys) {
-    let element = <a href={data[key].Link}>{data[key].Title}</a>;
+    let link = "/" + data[key].Link;
+    console.log(link);
+    let element = <a href={link}>{data[key].Title}</a>;
     console.log(element);
     list.push(element);
   }
