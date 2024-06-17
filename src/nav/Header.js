@@ -35,11 +35,28 @@ function listElements() {
   return list;
 }
 
+function HeaderLoad() {
+  React.useEffect(() => {
+    setTimeout(() => {
+      document.getElementById("banner").classList.remove("open");
+      document.getElementById("navigation").classList.remove("open");
+    }, 250);
+  });
+}
+
 function Header() {
   return (
     <>
-      <img id="banner" src={data.Banner} alt="Taste Events by Wolfmoon"></img>
-      <div id="navigation">{listElements()}</div>
+      <img
+        id="banner"
+        className="open"
+        src={data.Banner}
+        alt="Taste Events by Wolfmoon"
+      ></img>
+      <div id="navigation" className="open">
+        {listElements()}
+      </div>
+      <HeaderLoad />
     </>
   );
 }

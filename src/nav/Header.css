@@ -6,6 +6,8 @@ header {
 #banner {
   height: 100px;
   margin: auto;
+  opacity: 1;
+  transition: all 500ms ease;
 }
 
 #navigation {
@@ -13,6 +15,9 @@ header {
   justify-content: space-evenly;
   width: 1000px;
   margin: auto;
+  letter-spacing: 2px;
+  opacity: 1;
+  transition: all 500ms ease;
 }
 
 #navigation > a {
@@ -32,4 +37,14 @@ header {
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+#banner.open {
+  opacity: 0;
+  height: 50;
+}
+
+#navigation.open {
+  letter-spacing: 6px;
+  opacity: 0;
 }
