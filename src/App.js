@@ -4,22 +4,23 @@ import Home from "./pages";
 import Blog from "./pages/blog";
 import Events from "./pages/events";
 import Contact from "./pages/contact";
+import "./App.css";
 
 function App() {
   return (
     <>
       <Router>
         <Routes>
-          <Route exact path="/index" element={<Home />}>
+          <Route routerDirection="none" exact path="/" Component={Home}>
             Hem
           </Route>
-          <Route exact path="/Blog" element={<Blog />}>
+          <Route routerDirection="none" path="/Blog" Component={Blog}>
             Blog
           </Route>
-          <Route exact path="/Events" element={<Events />}>
+          <Route routerDirection="none" path="/Events" Component={Events}>
             Event
           </Route>
-          <Route exact path="/Contact" element={<Contact />}>
+          <Route routerDirection="none" path="/Contact" Component={Contact}>
             Kontakt
           </Route>
         </Routes>

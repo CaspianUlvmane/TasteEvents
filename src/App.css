@@ -1,0 +1,10 @@
+body {
+  margin: 0;
+  background-color: rgb(255, 242, 223);
+}
+
+main {
+  display: grid;
+  justify-content: center;
+  color: #16161d;
+}
