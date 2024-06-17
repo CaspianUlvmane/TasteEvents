@@ -10,6 +10,21 @@ main {
   grid-template-rows: repeat(2, 1fr);
   width: 1000px;
   margin: auto;
-  padding-top: 50px;
+  padding-top: 45px;
   gap: 20px;
+}
+
+header {
+  z-index: 5;
+}
+
+#background {
+  background-image: url("../public/waterSpots.jpg");
+  position: fixed;
+  mix-blend-mode: darken;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  opacity: 0.2;
+  z-index: 0;
 }
