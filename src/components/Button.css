@@ -1,0 +1,18 @@
+button {
+  z-index: 5;
+  border-radius: 15px;
+  font-family: Poor Richard;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  background: bisque;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition-property: font-size, background-color, background;
+  transition-duration: 250ms;
+}
+
+button:hover {
+  cursor: pointer;
+}
