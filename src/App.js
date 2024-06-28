@@ -4,6 +4,7 @@ import Home from "./pages";
 import Blog from "./pages/blog";
 import Events from "./pages/events";
 import Contact from "./pages/contact";
+import BlogPost from "./pages/blogPost";
 import "./App.css";
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
           <Route routerDirection="none" exact path="/" Component={Home}>
             Hem
           </Route>
-          <Route routerDirection="none" path="/Blog" Component={Blog}>
+          <Route routerDirection="none" path="/Blog/*" Component={Blog}>
             Blog
           </Route>
           <Route routerDirection="none" path="/Events" Component={Events}>
@@ -23,6 +24,7 @@ function App() {
           <Route routerDirection="none" path="/Contact" Component={Contact}>
             Kontakt
           </Route>
+          <Route path="/BlogPost" Component={BlogPost}></Route>
         </Routes>
       </Router>
     </>

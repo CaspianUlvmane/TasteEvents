@@ -1,6 +1,9 @@
 import React from "react";
 import Image from "./Image";
 import "./blogTeaser.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import BlogPost from "../pages/blogPost";
+
 function BlogTeaser(obj) {
   console.log(obj);
   let object = obj.obj;
@@ -11,7 +14,7 @@ function BlogTeaser(obj) {
       <>
         <div id={object.id} className="blogTeaser">
           <div className="imageContainer">
-            <a href={"/blogPost/" + object.id}>
+            <a href={"/BlogPost?post=" + object.id}>
               <Image url={object.data.Images[0]} alt={object.data.Title} />
             </a>
             <div className="imageDropShadow"></div>
