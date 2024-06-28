@@ -1,0 +1,25 @@
+main {
+  grid-template-columns: 1fr;
+}
+
+.blogTeaser {
+  grid-column: span 2;
+}
+
+.blogTeaserText {
+  display: flex;
+  flex-direction: column;
+}
+
+.blogTeaser > .imageContainer > a > img {
+  aspect-ratio: 1;
+  width: 150px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 5;
+}
+
+.blogTeaser > .imageContainer > .imageDropShadow {
+  width: 150px;
+  left: 2%;
+}
