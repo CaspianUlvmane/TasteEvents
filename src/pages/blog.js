@@ -1,6 +1,6 @@
 import React from "react";
 import db from "../db/firebase";
-import { collection, doc, getDoc, getDocs, query } from "firebase/firestore";
+import { collection, getDocs, query } from "firebase/firestore";
 import BlogTeaser from "../components/blogTeaser";
 
 const keysRef = query(collection(db, "BlogPosts"));
@@ -18,7 +18,7 @@ function Blog() {
   console.log(post.id);
   return (
     <>
-      <BlogTeaser obj={post} />;
+      <BlogTeaser obj={post} />
     </>
   );
 }

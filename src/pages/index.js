@@ -26,11 +26,11 @@ function Home() {
     <>
       <Badge />
       <BadgeLoad />
-      <div id="content" class="open">
+      <div id="content" className="open">
         {<HomeContent />}
       </div>
       <ContentLoad />
-      <div id="buttonMain" class="open">
+      <div id="buttonMain" className="open">
         <div id="buttonContainer">
           <Button
             id="toContact"

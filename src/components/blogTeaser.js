@@ -1,8 +1,6 @@
 import React from "react";
 import Image from "./Image";
 import "./blogTeaser.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import BlogPost from "../pages/blogPost";
 
 function BlogTeaser(obj) {
   console.log(obj);
@@ -12,11 +10,15 @@ function BlogTeaser(obj) {
   } else
     return (
       <>
-        <div id={object.id} className="blogTeaser">
+        <div
+          id={object.id}
+          onClick={() => {
+            window.location = "/BlogPost?post=" + object.id;
+          }}
+          className="blogTeaser"
+        >
           <div className="imageContainer">
-            <a href={"/BlogPost?post=" + object.id}>
-              <Image url={object.data.Images[0]} alt={object.data.Title} />
-            </a>
+            <Image url={object.data.Images[0]} alt={object.data.Title} />
             <div className="imageDropShadow"></div>
           </div>
           <div className="blogTeaserText">

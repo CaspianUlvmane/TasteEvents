@@ -2,16 +2,42 @@ main {
   grid-template-columns: 1fr;
 }
 
+main > div {
+  transition: background 500ms;
+}
+
 .blogTeaser {
-  grid-column: span 2;
+  border: dotted chocolate 2px;
+  border-radius: 15px;
+  padding: 15px;
+  z-index: 5;
+  background: bisque;
+  transition: all 200ms ease-in-out;
+}
+
+.blogTeaser:hover {
+  cursor: pointer;
+  transform: scale(1.01);
+}
+
+.blogTeaser:hover > .imageContainer > .imageDropShadow {
+  top: 0;
+  left: 0;
 }
 
 .blogTeaserText {
   display: flex;
   flex-direction: column;
+  gap: 10px;
 }
 
-.blogTeaser > .imageContainer > a > img {
+.blogTeaserText > h2,
+p {
+  margin: 0;
+  max-height: 54px;
+}
+
+.blogTeaser > .imageContainer > img {
   aspect-ratio: 1;
   width: 150px;
   border-radius: 50%;
@@ -22,4 +48,5 @@ main {
 .blogTeaser > .imageContainer > .imageDropShadow {
   width: 150px;
   left: 2%;
+  transition: all 200ms ease-in-out;
 }

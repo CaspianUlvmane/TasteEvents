@@ -9,11 +9,11 @@ let data = docSnap.data();
 
 function Badge() {
   return (
-    <div id="idContainer" class="open">
+    <div id="idContainer" className="open">
       <h1>Mrs Wolfmoon</h1>
-      <div class="imageContainer">
+      <div className="imageContainer">
         <Image url={data.image} alt="Anki Ulvmåne" />
-        <div class="imageDropShadow"></div>
+        <div className="imageDropShadow"></div>
       </div>
     </div>
   );

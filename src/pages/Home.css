@@ -79,7 +79,7 @@ div {
   display: flex;
   align-items: start;
   position: relative;
-  top: 0;
+  top: 30px;
   opacity: 1;
   transition: opacity, top, 500ms;
 }

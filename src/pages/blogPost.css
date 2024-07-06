@@ -1,0 +1,57 @@
+body > main {
+  grid-template-rows: repeat(3, 1fr);
+  position: relative;
+}
+
+#postHeader {
+  grid-column: span 2;
+}
+
+.imageContainer {
+  max-height: 400px;
+  justify-self: flex-start;
+}
+
+.imageContainer > img {
+  max-height: 400px;
+  aspect-ratio: 1;
+}
+
+#postContent {
+  display: grid;
+  grid-column: span 2;
+  grid-row: span 2;
+  grid-template-columns: 1fr 1fr;
+}
+
+.textContent {
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.back {
+  position: absolute;
+  left: 75px;
+  top: 65px;
+  transition: top 100ms;
+  transition-timing-function: cubic-bezier();
+}
+
+.back > svg {
+  transition: width, height 100ms;
+  transition-timing-function: cubic-bezier();
+}
+
+.back:hover {
+  cursor: pointer;
+  top: 63px;
+}
+
+.back:hover > svg {
+  fill: black;
+  width: 28px;
+  height: 28px;
+}
