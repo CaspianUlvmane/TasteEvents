@@ -6,7 +6,6 @@ import { doc, getDoc } from "firebase/firestore";
 const docRef = doc(db, "Header", "bh6lJtOCWTz8oIUZB9NK");
 let docSnap = await getDoc(docRef);
 
-console.log(docSnap.data());
 let data = docSnap.data();
 
 function listElements() {
@@ -16,7 +15,6 @@ function listElements() {
   for (let key in data) {
     if (key !== "Banner") {
       orderedKeys.push(key);
-      console.log(orderedKeys);
     }
   }
 
@@ -26,9 +24,9 @@ function listElements() {
   //create link elements for each key with data from db
   for (let key of orderedKeys) {
     let link = "/" + data[key].Link;
-    console.log(link);
+
     let element = <a href={link}>{data[key].Title}</a>;
-    console.log(element);
+
     list.push(element);
   }
 

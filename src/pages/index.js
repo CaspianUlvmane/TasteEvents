@@ -3,6 +3,23 @@ import "./Home.css";
 import Button from "../components/Button";
 import Badge from "../components/Badge";
 import HomeContent from "../components/HomeContent";
+import db from "../db/firebase";
+import { doc, getDoc } from "firebase/firestore";
+import ContentContainer from "../components/contentContainer";
+import Footer from "../components/Footer";
+
+const textRef = doc(db, "Home", "Content");
+let textSnap = await getDoc(textRef);
+let textData = textSnap.data();
+let Bottom = textData.bottomText;
+
+const SVRef = doc(db, "Home", "smallVenue");
+let SVSnap = await getDoc(SVRef);
+let SVData = SVSnap.data();
+
+const LVRef = doc(db, "Home", "largeVenue");
+let LVSnap = await getDoc(LVRef);
+let LVData = LVSnap.data();
 
 function BadgeLoad() {
   React.useEffect(() => {
@@ -29,16 +46,16 @@ function Home() {
       <div id="content" className="open">
         {<HomeContent />}
       </div>
-      <ContentLoad />
-      <div id="buttonMain" className="open">
-        <div id="buttonContainer">
-          <Button
-            id="toContact"
-            text="Boka en provning!"
-            navigation="./contact"
-          />
-        </div>
+      <Button id="toContact" text="Boka en provning!" navigation="./contact" />
+      <div id="cardContainer">
+        <ContentContainer data={SVData} />
+        <ContentContainer data={LVData} />
       </div>
+      <footer>
+        <h3>{Bottom}</h3>
+        <Footer />
+      </footer>
+      <ContentLoad />
     </>
   );
 }

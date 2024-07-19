@@ -16,7 +16,6 @@ if (postId) {
 }
 
 function BlogPost() {
-  console.log(postData);
   let textContent = [];
   postData.TextContent.forEach((element) => {
     textContent.push(<p>{element}</p>);

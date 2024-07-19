@@ -8,14 +8,12 @@ const postKeys = await getDocs(keysRef);
 
 let blogPosts = [];
 postKeys.forEach((doc) => {
-  console.log(doc.id, doc.data());
   blogPosts.push({ id: doc.id, data: doc.data() });
 });
 
 function Blog() {
-  console.log(blogPosts[0]);
   let post = blogPosts[0];
-  console.log(post.id);
+
   return (
     <>
       <BlogTeaser obj={post} />

@@ -5,7 +5,6 @@ import { doc, getDoc } from "firebase/firestore";
 const textRef = doc(db, "Home", "Content");
 let textSnap = await getDoc(textRef);
 let textData = textSnap.data();
-console.log(textData);
 
 function HomeContent() {
   let list = [];

@@ -3,7 +3,6 @@ import Image from "./Image";
 import "./blogTeaser.css";
 
 function BlogTeaser(obj) {
-  console.log(obj);
   let object = obj.obj;
   if (object.data.Images[0] === undefined) {
     return;

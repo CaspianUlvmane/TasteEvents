@@ -1,0 +1,40 @@
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  background: bisque;
+  padding: 15px;
+  border-radius: 20px;
+  border: 2px solid #16161d;
+  font-family: poor richard;
+  justify-content: start;
+}
+
+.content {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.content > div {
+  font-size: large;
+  font-weight: bold;
+}
+
+#cardContainer {
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  height: fit-content;
+}
+
+h2 {
+  margin: 0;
+  word-spacing: 15px;
+}
+
+h3 {
+  font-weight: normal;
+  margin: 0;
+}
