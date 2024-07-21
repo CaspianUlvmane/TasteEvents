@@ -9,6 +9,18 @@
   justify-content: start;
 }
 
+#cardContainer {
+  opacity: 1;
+  position: relative;
+  top: 0;
+  transition: opacity, top, 500ms;
+}
+
+#cardContainer.open {
+  opacity: 0;
+  top: -40px;
+}
+
 .content {
   font-family: Georgia, "Times New Roman", Times, serif;
   display: grid;

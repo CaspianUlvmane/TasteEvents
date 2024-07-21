@@ -1,0 +1,43 @@
+.eventContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 20px;
+  border-radius: 15px;
+  border: dotted 2px chocolate;
+  background-color: rgba(243, 235, 211, 0.705);
+}
+
+.eventContainer:hover {
+  background-color: bisque;
+  cursor: pointer;
+}
+
+.eventContainer:hover > .imageContainer > .imageDropShadow {
+  left: 0px;
+  top: 0px;
+}
+
+.imageContainer > img {
+  width: 100%;
+}
+
+.imageContainer > .imageDropShadow {
+  width: 100%;
+  left: 5px;
+  top: 5px;
+  transition: top, left, 200ms;
+}
+
+h2 {
+  font-weight: bold;
+  font-family: poor richard;
+  word-spacing: 9px;
+}
+
+.textContent {
+  gap: 10px;
+}
+
+p {
+  font-family: Georgia, "Times New Roman", Times, serif;
+}

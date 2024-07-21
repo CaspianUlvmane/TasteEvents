@@ -1,6 +1,6 @@
 import "./Header.css";
-import db from "../db/firebase.js";
 import React from "react";
+import db from "../db/firebase.js";
 import { doc, getDoc } from "firebase/firestore";
 
 const docRef = doc(db, "Header", "bh6lJtOCWTz8oIUZB9NK");

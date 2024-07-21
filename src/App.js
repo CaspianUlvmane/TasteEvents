@@ -18,7 +18,7 @@ function App() {
           <Route routerDirection="none" path="/Blog/*" Component={Blog}>
             Blog
           </Route>
-          <Route routerDirection="none" path="/Events" Component={Events}>
+          <Route routerDirection="none" path="/Events/*" Component={Events}>
             Event
           </Route>
           <Route routerDirection="none" path="/Contact" Component={Contact}>

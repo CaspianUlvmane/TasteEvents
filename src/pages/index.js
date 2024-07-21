@@ -8,11 +8,6 @@ import { doc, getDoc } from "firebase/firestore";
 import ContentContainer from "../components/contentContainer";
 import Footer from "../components/Footer";
 
-const textRef = doc(db, "Home", "Content");
-let textSnap = await getDoc(textRef);
-let textData = textSnap.data();
-let Bottom = textData.bottomText;
-
 const SVRef = doc(db, "Home", "smallVenue");
 let SVSnap = await getDoc(SVRef);
 let SVData = SVSnap.data();
@@ -34,6 +29,7 @@ function ContentLoad() {
     setTimeout(() => {
       document.getElementById("content").classList.remove("open");
       document.getElementById("buttonMain").classList.remove("open");
+      document.getElementById("cardContainer").classList.remove("open");
     }, 200);
   });
 }
@@ -47,14 +43,10 @@ function Home() {
         {<HomeContent />}
       </div>
       <Button id="toContact" text="Boka en provning!" navigation="./contact" />
-      <div id="cardContainer">
+      <div id="cardContainer" className="open">
         <ContentContainer data={SVData} />
         <ContentContainer data={LVData} />
       </div>
-      <footer>
-        <h3>{Bottom}</h3>
-        <Footer />
-      </footer>
       <ContentLoad />
     </>
   );
