@@ -1,7 +1,15 @@
 import Image from "./Image";
 import "./EventTeaser.css";
+import React from "react";
 
 function EventTeaser({ obj }) {
+  function EventLoad() {
+    React.useEffect(() => {
+      setTimeout(() => {
+        document.getElementById(obj.id).classList.remove("open");
+      }, 250);
+    });
+  }
   console.log(obj);
   let date = new Date(obj.data.Date.seconds * 1000).toDateString();
 
@@ -9,7 +17,7 @@ function EventTeaser({ obj }) {
     <>
       <div
         id={obj.id}
-        className="eventContainer"
+        className="eventContainer open"
         onClick={() => {
           window.location = "/Event?event=" + obj.id;
         }}
@@ -24,6 +32,7 @@ function EventTeaser({ obj }) {
           <p className="location">{obj.data.Location}</p>
         </div>
       </div>
+      <EventLoad />
     </>
   );
 }

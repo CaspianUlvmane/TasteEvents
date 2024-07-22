@@ -5,6 +5,7 @@ import Blog from "./pages/blog";
 import Events from "./pages/events";
 import Contact from "./pages/contact";
 import BlogPost from "./pages/blogPost";
+import Event from "./pages/Event";
 import "./App.css";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             Kontakt
           </Route>
           <Route path="/BlogPost" Component={BlogPost}></Route>
+          <Route path="/Event" Component={Event}></Route>
         </Routes>
       </Router>
     </>

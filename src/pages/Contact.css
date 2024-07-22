@@ -1,0 +1,19 @@
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 60vh;
+}
+
+#socials,
+#phone {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: x-large;
+
+  display: flex;
+  flex-direction: column;
+}
+
+#contact > div > a {
+  font-family: poor richard;
+}
