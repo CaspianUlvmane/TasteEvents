@@ -70,6 +70,7 @@ div {
   opacity: 1;
   left: 0;
   transition: opacity, left, 500ms;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
 #idContainer.open {

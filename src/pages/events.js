@@ -11,11 +11,13 @@ postKeys.forEach((doc) => {
 });
 
 function Events() {
-  let event = events[0];
-
+  events.sort((a, b) => a.data.Date.seconds - b.data.Date.seconds);
+  console.log(events);
   return (
     <>
-      <EventTeaser obj={event} />
+      {events.map((event) => (
+        <EventTeaser obj={event} />
+      ))}
     </>
   );
 }

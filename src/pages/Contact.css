@@ -3,6 +3,14 @@
   justify-content: center;
   flex-direction: column;
   height: 60vh;
+  transform: scale(1);
+  opacity: 1;
+  transition: opacity, transform 500ms;
+}
+
+#contact.open {
+  transform: scale(1.2);
+  opacity: 0;
 }
 
 #socials,

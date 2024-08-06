@@ -13,6 +13,8 @@ function EventTeaser({ obj }) {
   console.log(obj);
   let date = new Date(obj.data.Date.seconds * 1000).toDateString();
 
+  let url = obj.data.SquareImage ? obj.data.SquareImage : obj.data.Images[0];
+
   return (
     <>
       <div
@@ -23,7 +25,7 @@ function EventTeaser({ obj }) {
         }}
       >
         <div className="imageContainer">
-          <Image url={obj.data.Images[0]} alt={obj.data.Title} />
+          <Image url={url} alt={obj.data.Title} />
           <div className="imageDropShadow"></div>
         </div>
         <div className="textContent">

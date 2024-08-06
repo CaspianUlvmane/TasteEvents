@@ -32,6 +32,7 @@ function Event() {
 
   let address = postData.Location.split(",")[0];
   let city = postData.Location.split(",")[1].split(" ")[3];
+  let url = postData.CoverImage ? postData.CoverImage : postData.Images[0];
 
   return (
     <>
@@ -45,7 +46,7 @@ function Event() {
             </div>
             <div>{year}</div>
           </div>
-          <Image url={postData.Images[0]} />
+          <Image url={url} />
           <div className="imageDropShadow"></div>
           <div id="location">
             {address} {city}
