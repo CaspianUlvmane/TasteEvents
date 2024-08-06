@@ -6,6 +6,33 @@
   border: 2px solid #16161d;
   font-family: poor richard;
   justify-content: start;
+  max-width: 600px;
+  overflow-y: hidden;
+  height: 160px;
+  transition: height, 200ms;
+  position: relative;
+}
+
+.contentContainer:hover {
+  cursor: pointer;
+}
+
+.toggleSymbol {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  transform: rotate(180deg);
+  transition: transform, 200ms;
+}
+
+.contentContainer.closed > .toggleSymbol {
+  transform: rotate(0deg);
+}
+
+.contentContainer.closed {
+  height: 27px;
 }
 
 #cardContainer {
@@ -34,9 +61,8 @@
 
 #cardContainer {
   grid-column: span 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: start;
+  display: flex;
+  flex-direction: column;
   height: fit-content;
 }
 

@@ -35,6 +35,7 @@ function ContentLoad() {
 }
 
 function Home() {
+  document.querySelector("main").classList.add("home");
   return (
     <>
       <Badge />

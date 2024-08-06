@@ -7,7 +7,7 @@ main {
   display: grid;
   color: #16161d;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  grid-template-rows: 300px 300px auto;
   width: 1000px;
   margin: auto;
   padding-top: 45px;
