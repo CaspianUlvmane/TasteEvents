@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "tasteeventbywolfmoon",
     "public": "build",
     "ignore": [
       "firebase.json",
