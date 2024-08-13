@@ -7,10 +7,12 @@
     flex-direction: column;
   }
 
-  #top > .imageContainer > img,
-  .imageDropShadow {
+  #eventPage > #top > .imageContainer > img {
     max-width: 80vw;
     position: relative;
+  }
+  #eventPage > #top > .imageContainer > .imageDropShadow {
+    display: none;
   }
 
   #date,

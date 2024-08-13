@@ -12,7 +12,7 @@ postKeys.forEach((doc) => {
 });
 
 function Events() {
-  events.sort((a, b) => a.data.Date.seconds - b.data.Date.seconds);
+  events.sort((a, b) => b.data.Date.seconds - a.data.Date.seconds);
   console.log(events);
   return (
     <>

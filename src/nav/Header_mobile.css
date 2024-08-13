@@ -15,6 +15,7 @@
     left: -100vw;
     top: 0;
     z-index: 11;
+    box-shadow: -20px 15px 20px rgba(114, 51, 0, 0.808);
   }
 
   #navigation.burger_open {
