@@ -21,7 +21,6 @@ function listElements() {
 
   //sorts keys by value because the retrieved order is random
   orderedKeys.sort((a, b) => b.charCodeAt(0) - a.charCodeAt(0));
-  console.log(orderedKeys);
 
   //create link elements for each key with data from db
   for (let key of orderedKeys) {

@@ -10,7 +10,7 @@ function EventTeaser({ obj }) {
       }, 250);
     });
   }
-  console.log(obj);
+
   let date = new Date(obj.data.Date.seconds * 1000).toDateString();
 
   let url = obj.data.SquareImage ? obj.data.SquareImage : obj.data.Images[0];

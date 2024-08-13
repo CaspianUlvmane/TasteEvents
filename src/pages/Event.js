@@ -16,7 +16,6 @@ if (postId) {
 }
 
 function Event() {
-  console.log(postData);
   let textContent = [];
 
   postData.TextContent.forEach((element) => {
@@ -29,7 +28,6 @@ function Event() {
   let month = date.split(" ")[1];
   let number = date.split(" ")[2];
   let year = date.split(" ")[3];
-  console.log(day);
 
   let address = postData.Location.split(",")[0];
   let city = postData.Location.split(",")[1].split(" ")[3];

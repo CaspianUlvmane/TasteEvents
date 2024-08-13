@@ -13,7 +13,6 @@ let scroll = 0;
 window.addEventListener("scroll", (event) => {
   let previous = scroll + 5;
   scroll = window.scrollY;
-  console.log(scroll);
 
   if (scroll > 200) {
     document.getElementById("burger").classList.add("closed");
