@@ -51,3 +51,7 @@ header {
   letter-spacing: 6px;
   opacity: 0;
 }
+
+#burger {
+  opacity: 0;
+}

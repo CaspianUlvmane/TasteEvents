@@ -25,6 +25,10 @@
     width: calc(100vw - 40px);
   }
 
+  .contentContainer {
+    align-items: start;
+  }
+
   .contentContainer > h2 {
     max-width: 70%;
   }

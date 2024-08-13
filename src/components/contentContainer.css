@@ -6,13 +6,17 @@
   border: 2px solid #16161d;
   font-family: poor richard;
   justify-content: start;
-  align-items: start;
-  max-width: 600px;
+  align-items: center;
+  width: 600px;
   overflow-y: hidden;
   height: 160px;
   transition: height, 200ms;
   position: relative;
   background-color: rgba(245, 245, 220, 0.603);
+}
+
+.contentContainer.closed {
+  height: 30px;
 }
 
 .contentContainer:hover {

@@ -47,11 +47,12 @@ function HeaderLoad() {
 function Header() {
   let banner;
   let burger;
-  if (window.matchMedia("(max-width: 1000px)")) {
+  if (window.innerWidth < 1000) {
     banner = data.Banner_mobile;
     burger = <Burger />;
   } else {
     banner = data.Banner;
+    burger = <Burger />;
   }
 
   return (
