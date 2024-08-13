@@ -1,0 +1,26 @@
+@media only screen and (max-width: 1000px) {
+  #eventPage > #top {
+    width: 100vw;
+  }
+
+  #top > .imageContainer {
+    flex-direction: column;
+  }
+
+  #top > .imageContainer > img,
+  .imageDropShadow {
+    max-width: 80vw;
+    position: relative;
+  }
+
+  #date,
+  #location {
+    position: relative;
+    flex-direction: row;
+    left: auto;
+  }
+
+  #bottom {
+    text-align: center;
+  }
+}

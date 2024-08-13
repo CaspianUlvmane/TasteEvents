@@ -1,6 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import Image from "../components/Image";
 import "./Event.css";
+import "./Event_mobile.css";
 import db from "../db/firebase";
 
 const urlParams = new URLSearchParams(window.location.search);
