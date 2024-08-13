@@ -1,6 +1,7 @@
 import { doc, getDoc } from "firebase/firestore";
 import db from "../db/firebase";
 import "./Contact.css";
+import "./Contact_mobile.css";
 
 const postRef = doc(db, "Contact", "Content");
 let postData = await getDoc(postRef);

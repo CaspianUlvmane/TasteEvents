@@ -1,0 +1,16 @@
+@media only screen and (max-width: 1000px) {
+  body > main {
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .eventContainer {
+    width: 85vw;
+  }
+
+  .eventContainer > .imageContainer > img {
+    width: 100px;
+    height: 100px;
+  }
+}

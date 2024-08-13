@@ -16,6 +16,7 @@ main {
 
 header {
   z-index: 5;
+  gap: 10px;
 }
 
 #background {
@@ -27,4 +28,6 @@ header {
   top: 0;
   opacity: 0.2;
   z-index: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

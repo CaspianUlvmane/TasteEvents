@@ -1,0 +1,45 @@
+@media only screen and (max-width: 1000px) {
+  main.home {
+    gap: 45px;
+    align-items: center;
+    width: 100vw;
+    padding-top: 0;
+  }
+
+  #idContainer {
+    width: 100vw;
+  }
+
+  #content {
+    width: calc(100vw - 40px);
+  }
+
+  #buttonMain {
+    width: 100vw;
+  }
+  #buttonContainer {
+    margin: 0;
+  }
+
+  #cardContainer {
+    width: calc(100vw - 40px);
+  }
+
+  .contentContainer > h2 {
+    max-width: 70%;
+  }
+
+  #cardContainer > .contentContainer {
+    height: 100%;
+    width: 80vw;
+  }
+
+  .contentContainer > .content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .contentContainer.close > .content {
+    opacity: 0;
+  }
+}

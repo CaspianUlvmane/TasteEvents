@@ -7,6 +7,21 @@ import Contact from "./pages/contact";
 import BlogPost from "./pages/blogPost";
 import Event from "./pages/Event";
 import "./App.css";
+import "./App_mobile.css";
+
+let scroll = 0;
+window.addEventListener("scroll", (event) => {
+  let previous = scroll + 5;
+  scroll = window.scrollY;
+  console.log(scroll);
+
+  if (scroll > 200) {
+    document.getElementById("burger").classList.add("closed");
+  }
+  if (previous > scroll + 6) {
+    document.getElementById("burger").classList.remove("closed");
+  }
+});
 
 function App() {
   return (

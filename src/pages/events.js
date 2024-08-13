@@ -1,6 +1,7 @@
 import EventTeaser from "../components/EventTeaser";
 import db from "../db/firebase";
 import { collection, getDocs, query } from "firebase/firestore";
+import "./Events_mobile.css";
 
 const keysRef = query(collection(db, "Events"));
 const postKeys = await getDocs(keysRef);

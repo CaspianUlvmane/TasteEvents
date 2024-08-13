@@ -1,0 +1,10 @@
+@media only screen and (max-width: 1000px) {
+  main#contact {
+    padding: 10px;
+    width: calc(100vw - 20px);
+  }
+  #socials,
+  #phone {
+    text-align: center;
+  }
+}

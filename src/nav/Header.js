@@ -1,7 +1,9 @@
 import "./Header.css";
+import "./Header_mobile.css";
 import React from "react";
 import db from "../db/firebase.js";
 import { doc, getDoc } from "firebase/firestore";
+import Burger from "./Burger.js";
 
 const docRef = doc(db, "Header", "bh6lJtOCWTz8oIUZB9NK");
 let docSnap = await getDoc(docRef);
@@ -13,13 +15,13 @@ function listElements() {
   let orderedKeys = [];
   //retrieves keys from db and selects relevant keys
   for (let key in data) {
-    if (key !== "Banner") {
-      orderedKeys.push(key);
-    }
+    if (key === "Banner" || key === "Banner_mobile") {
+    } else orderedKeys.push(key);
   }
 
   //sorts keys by value because the retrieved order is random
   orderedKeys.sort((a, b) => b.charCodeAt(0) - a.charCodeAt(0));
+  console.log(orderedKeys);
 
   //create link elements for each key with data from db
   for (let key of orderedKeys) {
@@ -43,17 +45,27 @@ function HeaderLoad() {
 }
 
 function Header() {
+  let banner;
+  let burger;
+  if (window.matchMedia("(max-width: 1000px)")) {
+    banner = data.Banner_mobile;
+    burger = <Burger />;
+  } else {
+    banner = data.Banner;
+  }
+
   return (
     <>
       <img
         id="banner"
         className="open"
-        src={data.Banner}
+        src={banner}
         alt="Taste Events by Wolfmoon"
       ></img>
       <div id="navigation" className="open">
         {listElements()}
       </div>
+      {burger}
       <HeaderLoad />
     </>
   );

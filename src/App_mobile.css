@@ -1,0 +1,10 @@
+@media only screen and (max-width: 1000px) {
+  main {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #background {
+    background-image: url("/public/waterSpotsVertical.png");
+  }
+}

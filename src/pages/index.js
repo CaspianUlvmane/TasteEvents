@@ -1,12 +1,12 @@
 import React from "react";
 import "./Home.css";
+import "./Home_mobile.css";
 import Button from "../components/Button";
 import Badge from "../components/Badge";
 import HomeContent from "../components/HomeContent";
 import db from "../db/firebase";
 import { doc, getDoc } from "firebase/firestore";
 import ContentContainer from "../components/contentContainer";
-import Footer from "../components/Footer";
 
 const SVRef = doc(db, "Home", "smallVenue");
 let SVSnap = await getDoc(SVRef);

@@ -6,11 +6,13 @@
   border: 2px solid #16161d;
   font-family: poor richard;
   justify-content: start;
+  align-items: start;
   max-width: 600px;
   overflow-y: hidden;
   height: 160px;
   transition: height, 200ms;
   position: relative;
+  background-color: rgba(245, 245, 220, 0.603);
 }
 
 .contentContainer:hover {
@@ -31,8 +33,10 @@
   transform: rotate(0deg);
 }
 
-.contentContainer.closed {
-  height: 27px;
+#cardContainer > .contentContainer.closed > .content {
+  height: 0px;
+  opacity: 0;
+  position: absolute;
 }
 
 #cardContainer {
@@ -52,6 +56,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
+  opacity: 1;
+  height: auto;
 }
 
 .content > div {
