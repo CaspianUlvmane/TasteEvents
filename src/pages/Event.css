@@ -20,7 +20,7 @@
 
 #location {
   position: absolute;
-  left: 585px;
+  left: 105%;
 }
 
 #top > .imageContainer {
@@ -28,21 +28,24 @@
   justify-self: center;
 }
 
+#eventPage > #top > .imageContainer {
+  max-width: 50vw;
+}
+
 #top > .imageContainer > img {
-  height: 350px;
-  width: 550px;
+  aspect-ratio: 0;
+  height: 100%;
+  width: 100%;
   border-radius: 15px;
-  object-fit: cover;
+  object-fit: contain;
   background-position: center;
 }
 
 #top > .imageContainer > .imageDropShadow {
-  height: 350px;
-  width: 550px;
   left: 10px;
   top: 10px;
   border-radius: 15px;
-  object-fit: cover;
+  object-fit: contain;
   background-position: center;
 }
 
@@ -62,4 +65,10 @@
   grid-column: span 2;
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  #top > h1 {
+    font-size: xx-large;
+  }
 }

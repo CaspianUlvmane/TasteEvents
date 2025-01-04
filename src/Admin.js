@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages";
 import Blog from "./pages/blog";
 import Events from "./pages/events";
 import Contact from "./pages/contact";
@@ -8,7 +7,7 @@ import BlogPost from "./pages/blogPost";
 import Event from "./pages/Event";
 import "./App.css";
 import "./App_mobile.css";
-const queryString = window.location.search.slice(1);
+import AdminHome from "./admin/admin_home";
 
 let scroll = 0;
 window.addEventListener("scroll", (event) => {
@@ -22,12 +21,13 @@ window.addEventListener("scroll", (event) => {
     document.getElementById("burger").classList.remove("closed");
   }
 });
-function App() {
+
+function AdminApp() {
   return (
     <>
       <Router>
         <Routes>
-          <Route routerDirection="none" exact path="/" Component={Home}>
+          <Route routerDirection="none" exact path="/" Component={AdminHome}>
             Hem
           </Route>
           <Route routerDirection="none" path="/Blog/*" Component={Blog}>
@@ -47,4 +47,4 @@ function App() {
   );
 }
 
-export default App;
+export default AdminApp;

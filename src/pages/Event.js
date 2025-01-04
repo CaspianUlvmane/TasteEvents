@@ -23,16 +23,26 @@ function Event() {
   });
 
   let date = new Date(postData.Date.seconds * 1000).toDateString();
-  date.toString();
-  let day = date.split(" ")[0];
-  let month = date.split(" ")[1];
-  let number = date.split(" ")[2];
-  let year = date.split(" ")[3];
+  let day = "";
+  let month = "";
+  let number = "";
+  let year = "";
+  if (date !== "") {
+    date.toString();
+    day = date.split(" ")[0];
+    month = date.split(" ")[1];
+    number = date.split(" ")[2];
+    year = date.split(" ")[3];
+  }
 
-  let address = postData.Location.split(",")[0];
-  let city = postData.Location.split(",")[1].split(" ")[3];
-  let url = postData.CoverImage ? postData.CoverImage : postData.Images[0];
-
+  let address = "";
+  let city = "";
+  let url = "";
+  if (postData.Location !== "") {
+    address = postData.Location.split(",")[0];
+    city = postData.Location.split(",")[1].split(" ")[3];
+  }
+  url = postData.CoverImage ? postData.CoverImage : postData.Images[0];
   return (
     <>
       <div id="top">

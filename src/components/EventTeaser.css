@@ -10,6 +10,10 @@
   transition: opacity, transform, 250ms;
 }
 
+.eventContainer > .imageContainer {
+  width: fit-content;
+}
+
 .eventContainer.open {
   opacity: 0;
   transform: scale(0.8);

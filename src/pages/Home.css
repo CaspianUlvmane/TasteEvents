@@ -1,5 +1,5 @@
 .imageContainer > img {
-  width: 55%;
+  width: 100%;
   border-radius: 50%;
   z-index: 10;
 }
@@ -37,6 +37,10 @@ div {
   top: 0;
 }
 
+.home > #idContainer > .imageContainer {
+  width: 220px;
+}
+
 .imageContainer {
   display: flex;
   align-items: center;
@@ -46,9 +50,9 @@ div {
 
 .imageDropShadow {
   position: absolute;
-  left: 24%;
+  left: 5%;
   top: 3%;
-  width: 55%;
+  width: 100%;
   height: 100%;
   background: linear-gradient(
     135deg,

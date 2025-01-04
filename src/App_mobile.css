@@ -6,5 +6,6 @@
 
   #background {
     background-image: url("/public/waterSpotsVertical.png");
+    height: 100%;
   }
 }
