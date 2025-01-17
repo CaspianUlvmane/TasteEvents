@@ -9,7 +9,7 @@ function AdminLogin() {
         <input
           type="text"
           label="name"
-          placeholder="Förnamn"
+          placeholder="Användarnamn"
           id="adminName"
         ></input>
         <input

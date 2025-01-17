@@ -8,12 +8,12 @@ form {
   gap: 20px;
 }
 
-#admin > main > form > input {
+#admin > form > input {
   font-size: xx-large;
 }
 
 #admin {
-  height: 80vh;
+  height: 60vh;
   display: flex;
   flex-direction: column;
 }
