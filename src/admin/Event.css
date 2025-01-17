@@ -1,0 +1,74 @@
+#eventPage > #top {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  padding-bottom: 25px;
+  background-color: transparent;
+  border: none;
+}
+
+#date {
+  position: absolute;
+  left: -75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 5px;
+  padding: 5px;
+}
+
+#location {
+  position: absolute;
+  left: 105%;
+}
+
+#top > .imageContainer {
+  grid-column: span 2;
+  justify-self: center;
+}
+
+#eventPage > #top > .imageContainer {
+  max-width: 50vw;
+}
+
+#top > .imageContainer > img {
+  aspect-ratio: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  object-fit: contain;
+  background-position: center;
+}
+
+#top > .imageContainer > .imageDropShadow {
+  left: 10px;
+  top: 10px;
+  border-radius: 15px;
+  object-fit: contain;
+  background-position: center;
+}
+
+#eventPage > div {
+  font-size: large;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+#eventPage {
+  grid-template-rows: auto;
+  gap: 5px;
+}
+
+#bottom {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  #top > h1 {
+    font-size: xx-large;
+  }
+}

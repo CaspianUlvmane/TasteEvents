@@ -2,6 +2,7 @@ import AdminEventTeaser from "../components/AdminEventTeaser";
 import db from "../db/firebase";
 import { collection, getDocs, query } from "firebase/firestore";
 import "./Events_mobile.css";
+import AdminNewEvent from "../components/AdminNewEvent";
 
 const keysRef = query(collection(db, "Events"));
 const postKeys = await getDocs(keysRef);
@@ -27,6 +28,7 @@ function AdminEvents() {
       {events.map((event) => (
         <AdminEventTeaser obj={event} />
       ))}
+      <AdminNewEvent />
     </>
   );
 }

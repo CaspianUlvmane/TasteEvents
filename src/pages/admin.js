@@ -1,12 +1,10 @@
 import React from "react";
-import db from "../db/firebase";
-import { collection, getDocs, query } from "firebase/firestore";
 import valid from "../admin/valid";
 import "./admin.css";
 import AdminLogin from "../admin/adminLogin";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminEvents from "../admin/adminEvents";
-import Event from "./Event";
+import AdminEvent from "../admin/AdminEvent";
 
 function Admin() {
   if (valid) {
@@ -17,7 +15,7 @@ function Admin() {
             <Route
               routerDirection="none"
               exact
-              path="/Admin"
+              path="/Admin/*"
               Component={AdminEvents}
             >
               Events
@@ -29,7 +27,7 @@ function Admin() {
             >
               Blog
             </Route>
-            <Route path="/Event" Component={Event}></Route>
+            <Route path="/Admin/Event" Component={AdminEvent}></Route>
           </Routes>
         </Router>
       </>

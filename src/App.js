@@ -9,6 +9,7 @@ import Event from "./pages/Event";
 import "./App.css";
 import "./App_mobile.css";
 import Admin from "./pages/Admin";
+import AdminEvent from "./admin/AdminEvent";
 const queryString = window.location.search.slice(1);
 
 let scroll = 0;
@@ -43,6 +44,7 @@ function App() {
           <Route path="/BlogPost" Component={BlogPost}></Route>
           <Route path="/Event" Component={Event}></Route>
           <Route path="/Admin" Component={Admin}></Route>
+          <Route path="/Admin/Event" Component={AdminEvent}></Route>
         </Routes>
       </Router>
     </>

@@ -3,7 +3,7 @@ import "./EventTeaser.css";
 import React from "react";
 import db from "../db/firebase";
 import { update } from "firebase/database";
-import { doc, setDoc, updateDoc } from "firebase/firestore";
+import { deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
 
 function AdminEventTeaser({ obj }) {
   function EventLoad() {
@@ -16,16 +16,18 @@ function AdminEventTeaser({ obj }) {
 
   let date = new Date(obj.data.Date.seconds * 1000).toDateString();
 
-  let url = obj.data.SquareImage ? obj.data.SquareImage : obj.data.Images[0];
+  let url = obj.data.SquareImage
+    ? obj.data.SquareImage
+    : "https://firebasestorage.googleapis.com/v0/b/tasteevents.appspot.com/o/Quality-Ikon.png?alt=media&token=d252e9c5-f63f-4092-8dfb-5e8dbd9aecd1";
 
   return (
     <>
       <div
         id={obj.id}
         className={obj.data.Active + " eventContainer open"}
-        // onClick={() => {
-        //   window.location = "/Event?event=" + obj.id;
-        // }}
+        onClick={() => {
+          window.location = "/Admin/Event?event=" + obj.id;
+        }}
       >
         <div className="imageContainer">
           <Image url={url} alt={obj.data.Title} />
@@ -36,14 +38,17 @@ function AdminEventTeaser({ obj }) {
           <p className="date">{date}</p>
           <p className="location">{obj.data.Location}</p>
         </div>
-        <label class="switch">
+        <label class="switch" onClick={(event) => event.stopPropagation()}>
           <input
-            type="checkbox"
             onChange={activeEvent}
+            type="checkbox"
             defaultChecked={obj.data.Active}
           />
           <span class="slider round"></span>
         </label>
+        <div className="delete" onClick={(event) => deleteEvent(event)}>
+          X
+        </div>
       </div>
       <EventLoad />
     </>
@@ -56,6 +61,13 @@ async function activeEvent(event) {
   const wEvent = doc(db, "Events", event.target.parentElement.parentElement.id);
 
   await updateDoc(wEvent, { Active: event.target.checked });
+}
+
+async function deleteEvent(event) {
+  event.stopPropagation();
+
+  await deleteDoc(doc(db, "Events", event.target.parentElement.id));
+  event.target.parentElement.remove();
 }
 
 export default AdminEventTeaser;

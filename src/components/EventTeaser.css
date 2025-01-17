@@ -73,6 +73,8 @@ p {
 /* Hide default HTML checkbox */
 .switch input {
   opacity: 1;
+  width: 0px;
+  height: 0px;
 }
 
 /* The slider */
@@ -119,6 +121,33 @@ input:checked + .slider:before {
   border-radius: 34px;
 }
 
+#newEvent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#newEvent > .textContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .slider.round:before {
   border-radius: 50%;
+}
+
+.delete {
+  color: red;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: gainsboro;
+  aspect-ratio: 1;
+  width: 15px;
+  height: 15px;
+}
+.delete:hover {
+  background-color: rosybrown;
 }

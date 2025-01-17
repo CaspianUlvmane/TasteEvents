@@ -3,6 +3,7 @@ import Image from "../components/Image";
 import "./Event.css";
 import "./Event_mobile.css";
 import db from "../db/firebase";
+import valid from "./valid";
 
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("event");
@@ -15,7 +16,10 @@ if (postId) {
 } else {
 }
 
-function Event() {
+function AdminEvent() {
+  if (!valid) {
+    window.location.href = "/Admin";
+  }
   let textContent = [];
 
   postData.TextContent.forEach((element) => {
@@ -27,16 +31,12 @@ function Event() {
   let month = "";
   let number = "";
   let year = "";
-  if (date !== "" && date !== "Invalid Date") {
+  if (date !== "") {
     date.toString();
     day = date.split(" ")[0];
     month = date.split(" ")[1];
     number = date.split(" ")[2];
     year = date.split(" ")[3];
-  } else {
-    day = "Datum";
-    month = "kommer";
-    year = "snart!";
   }
 
   let address = "";
@@ -78,4 +78,4 @@ function Event() {
   );
 }
 
-export default Event;
+export default AdminEvent;
