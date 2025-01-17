@@ -31,7 +31,7 @@ function validate(event) {
   let name = document.getElementById("adminName").value;
   let password = document.getElementById("adminPassword").value;
 
-  if (name !== "MrsWolfmoon72" && password !== "Felix99Caspian02") {
+  if (name !== "MrsWolfmoon71" && password !== "Felix99Caspian02") {
     document.getElementById("error").textContent =
       "Namn eller lösenord var fel";
     return;
