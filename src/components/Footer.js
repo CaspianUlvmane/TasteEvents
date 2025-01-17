@@ -36,6 +36,10 @@ function Footer() {
           <Instagram />
         </a>
       </div>
+      <div id="dev">
+        <p>Webdev: Caspian Ulvmåne</p>
+        <a href="mailto:caspianulvmane@gmail.com">caspianulvmane@gmail.com</a>
+      </div>
       <FooterLoad />
     </>
   );

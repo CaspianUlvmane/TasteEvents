@@ -24,3 +24,17 @@ footer > h3 {
   font-family: poor richard;
   font-size: x-large;
 }
+
+#dev {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  gap: 5px;
+  align-items: end;
+}
+
+#dev > p {
+  margin: 0;
+}

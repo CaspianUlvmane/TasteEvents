@@ -8,7 +8,7 @@ const postKeys = await getDocs(keysRef);
 
 let events = [];
 postKeys.forEach((doc) => {
-  events.push({ id: doc.id, data: doc.data() });
+  if (doc.data().Active) events.push({ id: doc.id, data: doc.data() });
 });
 
 function Events() {
