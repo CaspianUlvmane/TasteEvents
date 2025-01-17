@@ -3,8 +3,6 @@ import ReactDOM from "react-dom/client";
 import Header from "./nav/Header";
 import App from "./App";
 import Footer from "./components/Footer";
-import Admin from "./pages/Admin";
-import AdminHeader from "./nav/AdminHeader";
 
 const main = ReactDOM.createRoot(document.querySelector("main"));
 const headerDom = ReactDOM.createRoot(document.querySelector("header"));
@@ -23,13 +21,6 @@ window.addEventListener("scroll", (event) => {
   }
 });
 
-console.log(window.location.pathname);
-
-if (window.location.pathname === "/Admin") {
-  headerDom.render(<AdminHeader />);
-  main.render(<Admin />);
-} else {
-  headerDom.render(<Header />);
-  main.render(<App />);
-  footer.render(<Footer />);
-}
+headerDom.render(<Header />);
+main.render(<App />);
+footer.render(<Footer />);

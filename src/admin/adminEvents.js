@@ -1,4 +1,4 @@
-import EventTeaser from "../components/EventTeaser";
+import AdminEventTeaser from "../components/AdminEventTeaser";
 import db from "../db/firebase";
 import { collection, getDocs, query } from "firebase/firestore";
 import "./Events_mobile.css";
@@ -8,26 +8,27 @@ const postKeys = await getDocs(keysRef);
 
 let events = [];
 postKeys.forEach((doc) => {
-  if (doc.data().Active) events.push({ id: doc.id, data: doc.data() });
+  events.push({ id: doc.id, data: doc.data() });
 });
 
-function Events() {
+function AdminEvents() {
   events.map(
     (event) =>
-      (event.data.dateSeconds = event.data.Date.seconds
+      (event.data.dateString = event.data.Date.seconds
         ? new Date(event.data.Date.seconds * 1000).getTime()
         : -Infinity)
   );
 
-  events = events.sort((a, b) => a.data.dateSeconds - b.data.dateSeconds);
+  events = events.sort((a, b) => a.data.dateString - b.data.dateString);
+  events.reverse();
 
   return (
     <>
       {events.map((event) => (
-        <EventTeaser obj={event} />
+        <AdminEventTeaser obj={event} />
       ))}
     </>
   );
 }
 
-export default Events;
+export default AdminEvents;

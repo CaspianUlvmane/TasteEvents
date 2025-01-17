@@ -11,9 +11,16 @@ function EventTeaser({ obj }) {
     });
   }
 
-  let date = new Date(obj.data.Date.seconds * 1000).toDateString();
+  let date = obj.data.Date.seconds
+    ? new Date(obj.data.Date.seconds * 1000)
+        .toLocaleString("sv-SV", {
+          timeZone: "CET",
+        })
+        .slice(0, 16)
+    : "Datum kommer snart!";
 
   let url = obj.data.SquareImage ? obj.data.SquareImage : obj.data.Images[0];
+  console.log(obj);
 
   return (
     <>

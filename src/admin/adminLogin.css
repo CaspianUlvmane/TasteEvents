@@ -1,0 +1,26 @@
+#error {
+  color: red;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#admin > main > form > input {
+  font-size: xx-large;
+}
+
+#admin {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#admin > main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
