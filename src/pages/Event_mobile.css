@@ -5,12 +5,18 @@
 
   #top > .imageContainer {
     flex-direction: column;
+    width: 90vw;
   }
 
   #eventPage > #top > .imageContainer > img {
-    max-width: 80vw;
+    min-width: 80vw;
     position: relative;
   }
+
+  #eventPage > .textContent {
+    max-width: 80vw;
+  }
+
   #eventPage > #top > .imageContainer > .imageDropShadow {
     display: none;
   }

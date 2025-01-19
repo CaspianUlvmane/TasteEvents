@@ -25,7 +25,7 @@ window.addEventListener("scroll", (event) => {
 
 console.log(window.location.pathname);
 
-if (window.location.pathname === "/Admin") {
+if (window.location.pathname.includes("/Admin")) {
   headerDom.render(<AdminHeader />);
   main.render(<Admin />);
 } else {

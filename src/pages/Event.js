@@ -19,7 +19,16 @@ function Event() {
   let textContent = [];
 
   postData.TextContent.forEach((element) => {
-    textContent.push(<div>{element}</div>);
+    if (element.includes("/n")) {
+      let paragraphs = element.split("/n");
+      let pDiv = [];
+      paragraphs.forEach((p) => {
+        pDiv.push(<p>{p}</p>);
+      });
+      textContent.push(<div className="textContent">{pDiv}</div>);
+    } else {
+      textContent.push(<div className="textContent">{element}</div>);
+    }
   });
 
   let date = new Date(postData.Date.seconds * 1000).toDateString();

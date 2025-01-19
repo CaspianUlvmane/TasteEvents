@@ -66,8 +66,13 @@ async function activeEvent(event) {
 async function deleteEvent(event) {
   event.stopPropagation();
 
-  await deleteDoc(doc(db, "Events", event.target.parentElement.id));
-  event.target.parentElement.remove();
+  let bool = window.confirm("Säker att du vill ta bort eventet för gott?");
+
+  console.log(bool);
+  if (bool) {
+    await deleteDoc(doc(db, "Events", event.target.parentElement.id));
+    event.target.parentElement.remove();
+  }
 }
 
 export default AdminEventTeaser;

@@ -11,7 +11,11 @@ let docSnap = await getDoc(docRef);
 let data = docSnap.data();
 
 function listElements() {
-  let list = [<a href="Admin">Event</a>, <a href="Blog">Blog</a>];
+  let list = [
+    <a href="/">Hem</a>,
+    <a href="Admin">Event</a>,
+    <a href="Blog">Blog</a>,
+  ];
 
   return list;
 }

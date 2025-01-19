@@ -1,0 +1,154 @@
+#Admin > #eventPage > #top {
+  display: flex;
+  flex-direction: column;
+  grid-column: span 2;
+  padding-bottom: 25px;
+  background-color: transparent;
+  border: none;
+}
+
+#Admin > #eventPage > #top > img {
+  max-width: 50vw;
+  border-radius: 15px;
+}
+
+.adminTextContent {
+  border: 1px solid black;
+}
+
+.adminTextContent:hover {
+  border: 2px solid black;
+}
+
+#newText {
+  border: 1px solid black;
+}
+
+#fileUpload {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 5px;
+  padding: 5px;
+}
+
+#title {
+  padding: 5px;
+  border: solid black 1px;
+  border-radius: 10px;
+}
+
+#AdminLocation,
+#price,
+#AdminBooking,
+#AdminCollab,
+#Link {
+  border: black 1px solid;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+#top > .imageContainer {
+  grid-column: span 2;
+  justify-self: center;
+}
+
+#eventPage > #top > .imageContainer {
+  max-width: 50vw;
+}
+
+#top > .imageContainer > img {
+  aspect-ratio: 0;
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+  object-fit: contain;
+  background-position: center;
+}
+
+#containerDiv {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: end;
+  align-items: center;
+}
+
+#buttonStack {
+  display: flex;
+  flex-direction: column;
+}
+
+#imgDiv {
+  width: 100%;
+  height: 40vh;
+  background-size: contain;
+  background-position: center;
+  border-radius: 10px;
+  background-repeat: no-repeat;
+}
+
+#window {
+  position: fixed;
+  width: 70vh;
+  left: calc(50% - 35vh);
+  opacity: 0;
+  background-color: rgb(46, 46, 48);
+  color: whitesmoke;
+  z-index: 100;
+  display: none;
+}
+
+#window > div > select {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+#window > select > option {
+  width: 100px;
+  height: 100px;
+}
+
+#window.open {
+  display: flex;
+  opacity: 1;
+}
+
+#Controlls {
+  justify-content: space-between;
+  grid-column: span 2;
+}
+
+#top > .imageContainer > .imageDropShadow {
+  left: 10px;
+  top: 10px;
+  border-radius: 15px;
+  object-fit: contain;
+  background-position: center;
+}
+
+#eventPage > div {
+  font-size: large;
+  height: fit-content;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+#eventPage {
+  grid-template-rows: auto;
+  gap: 20px;
+}
+
+#bottom {
+  grid-column: span 2;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  #top > h1 {
+    font-size: xx-large;
+  }
+}

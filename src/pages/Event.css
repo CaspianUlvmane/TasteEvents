@@ -56,9 +56,14 @@
   border-radius: 15px;
 }
 
+.textContent {
+  flex-direction: column;
+  align-items: baseline;
+}
+
 #eventPage {
   grid-template-rows: auto;
-  gap: 5px;
+  gap: 20px;
 }
 
 #bottom {

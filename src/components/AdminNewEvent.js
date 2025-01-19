@@ -44,10 +44,11 @@ async function newEvent() {
     Link: "",
     Location: "",
     Price: "",
-    SqaureImage: "",
+    SquareImage: "",
     TextContent: [""],
     Title: "",
   });
+  window.location.href = "/Admin/Event?event=" + eventId;
 }
 
 export default AdminNewEvent;
