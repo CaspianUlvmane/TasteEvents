@@ -1,4 +1,4 @@
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import Image from "../components/Image";
 import "./AdminEvent.css";
 import "./Event_mobile.css";
@@ -39,26 +39,33 @@ function AdminEvent() {
       </div>
     );
   });
+  console.log(postData.Date);
 
   let date = postData.Date.seconds
     ? new Date(postData.Date.seconds * 1000).toLocaleString("sv-SV", {
         timeZone: "CET",
       })
-    : Date().toLocaleString("sv-SV", {
+    : new Date().toLocaleString("sv-SV", {
         timeZone: "CET",
       });
 
   let address = "";
   let city = "";
+  let postal = "";
   let url = "";
   if (postData.Location !== "") {
     address = postData.Location.split(",")[0];
     city = postData.Location.split(",")[1].split(" ")[3];
+    postal =
+      postData.Location.split(",")[1].split(" ")[1] +
+      postData.Location.split(",")[1].split(" ")[2];
   }
   url = postData.CoverImage
     ? postData.CoverImage
     : "https://firebasestorage.googleapis.com/v0/b/tasteevents.appspot.com/o/Quality-Ikon.png?alt=media&token=d252e9c5-f63f-4092-8dfb-5e8dbd9aecd1";
-
+  const squareUrl = postData.squareImage
+    ? postData.squareImage
+    : "https://firebasestorage.googleapis.com/v0/b/tasteevents.appspot.com/o/Quality-Ikon.png?alt=media&token=d252e9c5-f63f-4092-8dfb-5e8dbd9aecd1";
   return (
     <>
       <div id="window">
@@ -73,6 +80,16 @@ function AdminEvent() {
       </div>
       <div id="Controlls">
         <a href={"/Event?event=" + postId}>Kund vy</a>
+        <div>
+          <label>Aktiv</label>
+          <label
+            class="AdminSwitch"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <input type="checkbox" defaultChecked={postData.Active} />
+            <span class="slider round"></span>
+          </label>
+        </div>
         <button onClick={saveChanges}>Spara</button>
       </div>
       <div id="top">
@@ -81,8 +98,13 @@ function AdminEvent() {
           {postData.Title}
         </h1>
         <div id="AdminDate">
-          Datum
-          <input type="datetime-local" id="dateTime" value={date}></input>
+          <label> Datum {date}</label>
+          <input
+            type="datetime-local"
+            id="dateTime"
+            defaultValue={date}
+            onInput={changeDate}
+          ></input>
         </div>
         <div className="imageContainer"></div>
         <Image url={url} />
@@ -97,17 +119,16 @@ function AdminEvent() {
             <button onClick={uploadImage}>Ladda upp</button>
           </div>
           <div id="coverImage">
-            <label>Cover bild</label>
             <button onClick={() => pickImage("cover")}>Välj Cover</button>
 
-            <label>Teaser ikon</label>
             <button onClick={() => pickImage("icon")}>Välj ikon</button>
           </div>
+          <img id="iconImage" src={squareUrl} alt="Ikon"></img>
         </div>
 
         <label>Plats</label>
         <div contentEditable id="AdminLocation">
-          {address} {city}
+          {postData.Location}
         </div>
       </div>
       {textContent}
@@ -162,6 +183,12 @@ function textValid(div) {
 }
 
 function uploadImage() {
+  if (!document.getElementById("imageUpload").files[0]) {
+    document.getElementById("fileUpload").firstChild.textContent =
+      "Bilden gick inte att laddas upp!";
+    return;
+  }
+
   let input = document.getElementById("imageUpload").files[0];
   console.log(input);
 
@@ -203,6 +230,20 @@ async function pickImage(id) {
   });
 }
 
+function changeDate(event) {
+  console.log(
+    new Date(event.target.value).toLocaleString("sv-SV", {
+      timeZone: "CET",
+    })
+  );
+
+  document.querySelector("#AdminDate > label").textContent =
+    "Datum " +
+    new Date(event.target.value).toLocaleString("sv-SV", {
+      timeZone: "CET",
+    });
+}
+
 function changeImage(event) {
   const imgDiv = document.getElementById("imgDiv");
 
@@ -210,13 +251,54 @@ function changeImage(event) {
 }
 
 function chooseImage() {
-  const option = document.querySelector("option");
+  const select = document.querySelector("select");
+  const url = select.selectedOptions[0].url;
+  const id = select.id;
+
+  if (id === "cover") {
+    document.querySelector("#top > img").src = url;
+    console.log(document.querySelector("#top > img").src);
+  } else {
+    document.getElementById("iconImage").src = url;
+    console.log(document.getElementById("iconImage").src);
+  }
+  closeWindow();
 }
 
 function closeWindow() {
   document.getElementById("window").classList.remove("open");
 }
 
-function saveChanges() {}
+async function saveChanges() {
+  const title = document.getElementById("title").textContent;
+
+  const dateSeconds =
+    new Date(document.getElementById("dateTime").value).getTime() / 1000;
+
+  const cover = document.querySelector("#top > img").src;
+  const icon = document.getElementById("iconImage").src;
+  const collab = document.getElementById("AdminCollab").textContent;
+  const book = document.getElementById("AdminBooking").textContent;
+  const link = document.getElementById("Link").textContent;
+  const location = document.getElementById("AdminLocation").textContent;
+  const price = document.getElementById("price").textContent;
+  const textContent = Array.from(
+    document.querySelectorAll(".adminTextContent")
+  ).map((div) => div.textContent);
+
+  await setDoc(doc(db, "Events", postId), {
+    Active: document.querySelector(".AdminSwitch > input").checked,
+    Book: book,
+    Collaboration: collab,
+    CoverImage: cover,
+    Date: { seconds: dateSeconds },
+    Link: link,
+    Location: location,
+    Price: price,
+    SquareImage: icon,
+    TextContent: textContent,
+    Title: title,
+  });
+}
 
 export default AdminEvent;

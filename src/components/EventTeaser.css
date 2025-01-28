@@ -77,6 +77,22 @@ p {
   height: 0px;
 }
 
+.AdminSwitch {
+  position: relative;
+  display: inline-block;
+  left: ;
+  width: 40px;
+  height: 23px;
+  z-index: 100;
+}
+
+/* Hide default HTML checkbox */
+.AdminSwitch input {
+  opacity: 1;
+  width: 0px;
+  height: 0px;
+}
+
 /* The slider */
 .slider {
   position: absolute;
