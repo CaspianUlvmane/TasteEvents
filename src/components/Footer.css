@@ -38,3 +38,14 @@ footer > h3 {
 #dev > p {
   margin: 0;
 }
+
+@media only screen and (max-width: 1000px) {
+  #dev {
+    position: relative;
+    align-items: center;
+    padding-top: 25px;
+  }
+  footer > div {
+    text-align: center;
+  }
+}
