@@ -155,4 +155,16 @@
   #top > h1 {
     font-size: xx-large;
   }
+
+  #AdminDate {
+    max-width: 80vw;
+  }
+
+  #selectImage {
+    flex-direction: column;
+  }
+
+  #Controlls {
+    flex-direction: column;
+  }
 }
