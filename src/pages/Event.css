@@ -9,13 +9,17 @@
 
 #date {
   position: absolute;
-  right: 100%;
+  right: calc(100% + 5px);
   display: flex;
   flex-direction: column;
   justify-content: start;
   align-items: end;
   gap: 5px;
   padding: 5px;
+}
+
+#date > div {
+  width: max-content;
 }
 
 #location {

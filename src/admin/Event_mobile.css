@@ -24,6 +24,7 @@
     position: relative;
     flex-direction: row;
     left: auto;
+    right: auto;
   }
 
   #bottom {

@@ -49,10 +49,18 @@ function Event() {
       )
     : new Date().toLocaleString("sv-SV", dateOptions);
 
+  let time = new Date(postData.Date.seconds * 1000).toLocaleString("sv-SV", {
+    hour12: false,
+  });
+  time = time.split(" ")[1];
+  time = "Kl: " + time.slice(0, 5);
+
   let day = "";
   let month = "";
   let number = "";
   let year = "";
+  console.log(date);
+
   if (date !== "" && date !== "Invalid Date") {
     date.toString();
     day = capitalization(date.split(" ")[0]);
@@ -79,9 +87,10 @@ function Event() {
           <div id="date">
             <div>{day}</div>
             <div>
-              {month} {number}
+              {number} {month}
             </div>
             <div>{year}</div>
+            <div>{time}</div>
           </div>
           <Image url={url} />
           <div className="imageDropShadow"></div>
