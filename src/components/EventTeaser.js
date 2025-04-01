@@ -20,7 +20,6 @@ function EventTeaser({ obj }) {
     : "Datum kommer snart!";
 
   let url = obj.data.SquareImage ? obj.data.SquareImage : obj.data.Images[0];
-  console.log(obj);
 
   return (
     <>

@@ -28,7 +28,6 @@ function AdminEvent() {
     window.location.href = "/Admin";
   }
   document.querySelector("body").id = "Admin";
-  console.log(postData);
 
   let textContent = [];
 
@@ -39,7 +38,6 @@ function AdminEvent() {
       </div>
     );
   });
-  console.log(postData.Date);
 
   let date = postData.Date.seconds
     ? new Date(postData.Date.seconds * 1000).toLocaleString("sv-SV", {
@@ -63,8 +61,8 @@ function AdminEvent() {
   url = postData.CoverImage
     ? postData.CoverImage
     : "https://firebasestorage.googleapis.com/v0/b/tasteevents.appspot.com/o/Quality-Ikon.png?alt=media&token=d252e9c5-f63f-4092-8dfb-5e8dbd9aecd1";
-  const squareUrl = postData.squareImage
-    ? postData.squareImage
+  const squareUrl = postData.SquareImage
+    ? postData.SquareImage
     : "https://firebasestorage.googleapis.com/v0/b/tasteevents.appspot.com/o/Quality-Ikon.png?alt=media&token=d252e9c5-f63f-4092-8dfb-5e8dbd9aecd1";
   return (
     <>
@@ -90,7 +88,9 @@ function AdminEvent() {
             <span class="slider round"></span>
           </label>
         </div>
-        <button onClick={saveChanges}>Spara</button>
+        <button id="save" onClick={saveChanges}>
+          Spara
+        </button>
       </div>
       <div id="top">
         <label>Titel</label>
@@ -190,7 +190,6 @@ function uploadImage() {
   }
 
   let input = document.getElementById("imageUpload").files[0];
-  console.log(input);
 
   // Create a root reference
   const storage = getStorage();
@@ -199,8 +198,6 @@ function uploadImage() {
   const storageImagesRef = ref(storage, input.name);
 
   uploadBytes(storageImagesRef, input).then((snapshot) => {
-    console.log(input);
-
     document.getElementById("fileUpload").firstChild.textContent =
       "Bilden laddades upp!";
   });
@@ -215,7 +212,6 @@ async function pickImage(id) {
   await listAll(listRef).then((res) => {
     ul.id = id;
     res.items.forEach((itemRef) => {
-      console.log(itemRef);
       const storageImagesRef = ref(storage, itemRef._location.path_);
       getDownloadURL(storageImagesRef).then((url) => {
         let li = document.createElement("option");
@@ -231,12 +227,6 @@ async function pickImage(id) {
 }
 
 function changeDate(event) {
-  console.log(
-    new Date(event.target.value).toLocaleString("sv-SV", {
-      timeZone: "CET",
-    })
-  );
-
   document.querySelector("#AdminDate > label").textContent =
     "Datum " +
     new Date(event.target.value).toLocaleString("sv-SV", {
@@ -257,10 +247,8 @@ function chooseImage() {
 
   if (id === "cover") {
     document.querySelector("#top > img").src = url;
-    console.log(document.querySelector("#top > img").src);
   } else {
     document.getElementById("iconImage").src = url;
-    console.log(document.getElementById("iconImage").src);
   }
   closeWindow();
 }
@@ -270,6 +258,9 @@ function closeWindow() {
 }
 
 async function saveChanges() {
+  const button = document.getElementById("save");
+  button.disabled = true;
+  button.textContent = "Laddar";
   const title = document.getElementById("title").textContent;
 
   const dateSeconds =
@@ -299,6 +290,8 @@ async function saveChanges() {
     TextContent: textContent,
     Title: title,
   });
+  button.textContent = "Spara";
+  button.disabled = false;
 }
 
 export default AdminEvent;

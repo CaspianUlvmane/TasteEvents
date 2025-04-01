@@ -33,7 +33,6 @@ function AdminNewEvent() {
 
 async function newEvent() {
   const eventId = prompt("Ge eventet ett id");
-  console.log(eventId);
 
   await setDoc(doc(db, "Events", eventId), {
     Active: false,

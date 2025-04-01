@@ -68,7 +68,6 @@ async function deleteEvent(event) {
 
   let bool = window.confirm("Säker att du vill ta bort eventet för gott?");
 
-  console.log(bool);
   if (bool) {
     await deleteDoc(doc(db, "Events", event.target.parentElement.id));
     event.target.parentElement.remove();

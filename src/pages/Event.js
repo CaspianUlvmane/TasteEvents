@@ -4,6 +4,10 @@ import "./Event.css";
 import "./Event_mobile.css";
 import db from "../db/firebase";
 
+function capitalization(text) {
+  return String(text).charAt(0).toUpperCase() + String(text).slice(1);
+}
+
 const urlParams = new URLSearchParams(window.location.search);
 const postId = urlParams.get("event");
 let postData;
@@ -31,16 +35,29 @@ function Event() {
     }
   });
 
-  let date = new Date(postData.Date.seconds * 1000).toDateString();
+  const dateOptions = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "CET",
+  };
+  let date = postData.Date.seconds
+    ? new Date(postData.Date.seconds * 1000).toLocaleString(
+        "sv-SV",
+        dateOptions
+      )
+    : new Date().toLocaleString("sv-SV", dateOptions);
+
   let day = "";
   let month = "";
   let number = "";
   let year = "";
   if (date !== "" && date !== "Invalid Date") {
     date.toString();
-    day = date.split(" ")[0];
-    month = date.split(" ")[1];
-    number = date.split(" ")[2];
+    day = capitalization(date.split(" ")[0]);
+    month = capitalization(date.split(" ")[2]);
+    number = date.split(" ")[1];
     year = date.split(" ")[3];
   } else {
     day = "Datum";
@@ -49,11 +66,9 @@ function Event() {
   }
 
   let address = "";
-  let city = "";
   let url = "";
   if (postData.Location !== "") {
-    address = postData.Location.split(",")[0];
-    city = postData.Location.split(",")[1].split(" ")[3];
+    address = postData.Location;
   }
   url = postData.CoverImage ? postData.CoverImage : postData.Images[0];
   return (
@@ -70,18 +85,32 @@ function Event() {
           </div>
           <Image url={url} />
           <div className="imageDropShadow"></div>
-          <div id="location">
-            {address} {city}
-          </div>
+          <div id="location">{address}</div>
         </div>
       </div>
       {textContent}
-      <div>{postData.Price}</div>
+      <div id="priceContainer">
+        {postData.Price.includes("/n")
+          ? postData.Price.split("/n").map((p) => <div>{p}</div>)
+          : postData.Price}
+      </div>
 
       <div id="bottom">
         <div id="collab">{postData.Collaboration}</div>
-        <div id="Booking">{postData.Book}</div>
-        <a href={postData.Link}>{postData.Title}</a>
+        <div id="Booking">
+          {postData.Book.includes("/n")
+            ? postData.Book.split("/n").map((p) => <div>{p}</div>)
+            : postData.Book}
+        </div>
+        <a
+          href={
+            postData.Link.includes("@")
+              ? "mailto:" + postData.Link
+              : postData.Link
+          }
+        >
+          {postData.Title}
+        </a>
       </div>
     </>
   );

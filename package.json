@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "ajv": "^7.2.4",
     "case-sensitive-paths-webpack-plugin": "^2.4.0"
   }
 }

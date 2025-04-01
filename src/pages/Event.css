@@ -9,11 +9,11 @@
 
 #date {
   position: absolute;
-  left: -75px;
+  right: 100%;
   display: flex;
   flex-direction: column;
   justify-content: start;
-  align-items: start;
+  align-items: end;
   gap: 5px;
   padding: 5px;
 }
@@ -69,6 +69,14 @@
 #bottom {
   grid-column: span 2;
   display: flex;
+  flex-direction: column;
+}
+
+#Booking {
+  flex-direction: column;
+}
+
+#priceContainer {
   flex-direction: column;
 }
 
