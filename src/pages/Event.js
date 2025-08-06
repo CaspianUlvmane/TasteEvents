@@ -21,6 +21,7 @@ if (postId) {
 
 function Event() {
   let textContent = [];
+  console.log(postData);
 
   postData.TextContent.forEach((element) => {
     if (element.includes("/n")) {
@@ -78,7 +79,7 @@ function Event() {
   if (postData.Location !== "") {
     address = postData.Location;
   }
-  url = postData.CoverImage ? postData.CoverImage : postData.Images[0];
+  url = postData.CoverImage;
   return (
     <>
       <div id="top">

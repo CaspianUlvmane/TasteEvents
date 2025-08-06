@@ -4,7 +4,9 @@ import React from "react";
 import db from "../db/firebase";
 import { update } from "firebase/database";
 import { addDoc, collection, doc, setDoc, updateDoc } from "firebase/firestore";
-
+function capitalization(text) {
+  return String(text).charAt(0).toUpperCase() + String(text).slice(1);
+}
 function AdminNewEvent() {
   function EventLoad() {
     React.useEffect(() => {
@@ -32,8 +34,8 @@ function AdminNewEvent() {
 }
 
 async function newEvent() {
-  const eventId = prompt("Ge eventet ett id");
-
+  let eventId = prompt("Ge eventet ett id");
+  eventId = capitalization(eventId);
   await setDoc(doc(db, "Events", eventId), {
     Active: false,
     Book: "",

@@ -28,6 +28,22 @@ function Admin() {
               Blog
             </Route>
             <Route path="/Admin/Event" Component={AdminEvent}></Route>
+            <Route
+              routerDirection="none"
+              exact
+              path="/admin/*"
+              Component={AdminEvents}
+            >
+              Events
+            </Route>
+            <Route
+              routerDirection="none"
+              path="/admin/Blog/*"
+              Component={AdminEvents}
+            >
+              Blog
+            </Route>
+            <Route path="/admin/Event" Component={AdminEvent}></Route>
           </Routes>
         </Router>
       </>
