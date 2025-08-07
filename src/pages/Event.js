@@ -3,6 +3,7 @@ import Image from "../components/Image";
 import "./Event.css";
 import "./Event_mobile.css";
 import db from "../db/firebase";
+import { Helmet } from "react-helmet";
 
 function capitalization(text) {
   return String(text).charAt(0).toUpperCase() + String(text).slice(1);
@@ -82,6 +83,20 @@ function Event() {
   url = postData.CoverImage;
   return (
     <>
+      <Helmet>
+        <title>{`${postData.Title} | Taste Events by Wolfmoon`}</title>
+        <meta
+          name="description"
+          content={
+            postData.TextContent[0] ||
+            "En smakupplevelse arrangerad av Anki Ulvmåne från Taste Events by Wolfmoon."
+          }
+        />
+        <meta
+          name="keywords"
+          content="event, tasting, whisky, gin, wolfmoon, taste events"
+        />
+      </Helmet>
       <div id="top">
         <h1>{postData.Title}</h1>
         <div className="imageContainer">

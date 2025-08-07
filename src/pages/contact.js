@@ -2,6 +2,7 @@ import { doc, getDoc } from "firebase/firestore";
 import db from "../db/firebase";
 import "./Contact.css";
 import "./Contact_mobile.css";
+import { Helmet } from "react-helmet";
 
 const postRef = doc(db, "Contact", "Content");
 let postData = await getDoc(postRef);
@@ -11,6 +12,17 @@ function Contact() {
   document.querySelector("main").id = "contact";
   return (
     <>
+      <Helmet>
+        <title>Kontakt | Taste Events by Wolfmoon</title>
+        <meta
+          name="description"
+          content="Kontakta Taste Events by Wolfmoon för frågor om smakupplevelser och event."
+        />
+        <meta
+          name="keywords"
+          content="kontakt, contact, wolfmoon, event, tasting"
+        />
+      </Helmet>
       <h1>{postData.Title}</h1>
       <div id="socials">
         {postData.Text[0]}

@@ -23,7 +23,10 @@ window.addEventListener("scroll", (event) => {
   }
 });
 
-if (window.location.pathname.includes("/Admin")) {
+if (
+  window.location.pathname.includes("/Admin") ||
+  window.location.pathname.includes("/admin")
+) {
   headerDom.render(<AdminHeader />);
   main.render(<Admin />);
 } else {

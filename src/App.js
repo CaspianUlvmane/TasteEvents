@@ -45,6 +45,8 @@ function App() {
           <Route path="/Event" Component={Event}></Route>
           <Route path="/Admin" Component={Admin}></Route>
           <Route path="/Admin/Event" Component={AdminEvent}></Route>
+          <Route path="/admin" Component={Admin}></Route>
+          <Route path="/admin/Event" Component={AdminEvent}></Route>
         </Routes>
       </Router>
     </>
