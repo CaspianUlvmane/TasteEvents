@@ -34,6 +34,7 @@
 
 #eventPage > #top > .imageContainer {
   max-width: 50vw;
+  max-height: fit-content;
 }
 
 #top > .imageContainer > img {
